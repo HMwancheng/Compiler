@@ -1,0 +1,33 @@
+name: Build WPF-UI Sample
+
+on:
+  push:
+    branches:
+      - Simple_Brightness_Tool-WinUI3
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build (Windows)
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET 8
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Restore
+        run: dotnet restore WpfUiSample/WpfUiSample.csproj
+
+      - name: Build (Release)
+        run: dotnet build WpfUiSample/WpfUiSample.csproj -c Release --no-restore
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: WpfUiSample-build
+          path: WpfUiSample/bin/Release/net8.0-windows
+          if-no-files-found: error

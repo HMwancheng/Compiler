@@ -1,0 +1,12 @@
+<Application x:Class="WpfUiSample.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:ui="http://schemas.lepoco.org/wpfui"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ui:ThemeResources EnableMicaBackdrop="True" />
+        <ui:FluentWindow.Resources>
+            <ui:FluentWindowGlobalStyle />
+        </ui:FluentWindow.Resources>
+    </Application.Resources>
+</Application>
