@@ -13,7 +13,7 @@
 
         <Slider x:Name="BrightnessSlider"
                 Minimum="0" Maximum="100"
-                StepFrequency="1"
+                SmallChange="1"
                 ValueChanged="BrightnessSlider_ValueChanged" />
 
         <ui:Button Content="应用亮度"
